@@ -55,4 +55,17 @@ Dòng 5: Hộp 3
 
 ---
 
+### Câu A4 (5đ) — Table
+*Nguồn tham chiếu: tuan_1_html5/05_tables_hyperlinks.md*
+
+**1. Phân biệt các thẻ Table:**
+- `<thead>`: Dùng để chứa hàng tiêu đề của các cột (Table Head).
+- `<tbody>`: Dùng để chứa toàn bộ nội dung dữ liệu của bảng (Table Body).
+- `<tfoot>`: Dùng để chứa hàng tính tổng hoặc kết quả ở dưới cùng của bảng (Table Foot).
+
+**2. Lý do KHÔNG NÊN dùng Table để tạo layout trang web:**
+- **Giết chết SEO (Vi phạm ngữ nghĩa Semantic):** Bot Google sẽ hiểu nhầm web là một đống dữ liệu thống kê khô khan thay vì một trang web chuẩn có phần đầu, thân và đuôi riêng biệt.
+- **Kém Responsive:** Cấu trúc cực kỳ cứng nhắc, không thể tự gập hay tự sắp xếp lại giao diện khi xem trên màn hình nhỏ (điện thoại, tablet).
+- **Code rất bẩn và tổ chim:** Việc phải lồng ghép quá nhiều lớp thẻ (`<table>` tới `<tr>` tới `<td>`) khiến code trở nên dang dở, rườm rà, rất cực vất vả khi sửa lỗi.
+
 ---
