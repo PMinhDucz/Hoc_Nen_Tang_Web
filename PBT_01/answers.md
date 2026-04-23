@@ -69,3 +69,18 @@ Dòng 5: Hộp 3
 - **Code rất bẩn và tổ chim:** Việc phải lồng ghép quá nhiều lớp thẻ (`<table>` tới `<tr>` tới `<td>`) khiến code trở nên dang dở, rườm rà, rất cực vất vả khi sửa lỗi.
 
 ---
+
+### Bài B3 (15đ) — Debug HTML
+
+**Danh sách các lỗi sai trong đoạn code gốc và cách khắc phục:**
+1. Lỗi Dòng 1 `<!DOCTYPE>`: Thiếu chữ `html`. 👉 Sửa thành `<!DOCTYPE html>`.
+2. Lỗi Dòng 3 `<title>Trang web`: Thiếu thẻ đóng. 👉 Sửa thành `<title>Trang web</title>`.
+3. Lỗi Dòng 4 `<meta charset="utf8">`: utf8 viết thiếu dấu. 👉 Sửa thành `charset="UTF-8"`.
+4. Lỗi Dòng 8 `<h1>Welcome to ShopTLU<h1>`: Thẻ đóng bị sai (thiếu dấu `/`). 👉 Sửa thành `</h1>`.
+5. Lỗi Dòng 12 `<a href="home">Trang chủ<a>`: Thẻ đóng bị sai. 👉 Sửa thành `</a>`.
+6. Lỗi Dòng 19 `<img src=iphone.jpg>`: Thiếu ngoặc kép ở link và thiếu thuộc tính `alt`. 👉 Sửa thành `<img src="iphone.jpg" alt="iPhone 16 Pro">`.
+7. Lỗi Dòng 21 `<p>Giá: <b>25.990.000đ</p></b>`: Lồng thẻ chéo nhau sai logic. 👉 Sửa thành `<p>Giá: <strong>25.990.000đ</strong></p>`.
+8. Lỗi Dòng 26 `<table>`: Bảng bị thiếu phân vùng Semantic. 👉 Đã bổ sung `<thead>`, `<tbody>` và đổi `<td>` tiêu đề thành `<th>`.
+9. Lỗi Dòng 38 `<main>` thứ 2: Một trang web chỉ được có 1 thẻ `<main>`. Do đây là sidebar nên 👉 Sửa thành `<aside>`.
+10. Lỗi Dòng 43 `<p>Copyright 2026`: Thiếu thẻ đóng. 👉 Sửa thành `</p>`.
+11. Lỗi Dòng cuối: Thiếu thẻ đóng gốc `</html>` của toàn trang web.
