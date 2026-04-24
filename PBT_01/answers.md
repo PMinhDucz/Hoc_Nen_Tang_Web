@@ -84,3 +84,107 @@ Dòng 5: Hộp 3
 9. Lỗi Dòng 38 `<main>` thứ 2: Một trang web chỉ được có 1 thẻ `<main>`. Do đây là sidebar nên 👉 Sửa thành `<aside>`.
 10. Lỗi Dòng 43 `<p>Copyright 2026`: Thiếu thẻ đóng. 👉 Sửa thành `</p>`.
 11. Lỗi Dòng cuối: Thiếu thẻ đóng gốc `</html>` của toàn trang web.
+
+---
+
+### Bài B4 (15đ) — Phân tích trang web thật (Gợi ý: Dùng shopee.vn)
+
+*(Bài tập này yêu cầu bạn tự tay F12, chụp 3 bức ảnh màn hình lưu vào mục `screenshots` và điền tên file ảnh vào)*
+
+**1. Thẻ Semantic:**
+- 3 thẻ semantic sử dụng: `<header>`, `<main>`, `<footer>` (VD: phần đầu trang chứa logo, phần ruột chứa danh sách SP, và phần chân trang thông tin công ty).
+- 2 thẻ dùng không chuẩn: Quá nhiều thẻ `<div class="...">` lồng nhau (div soup) thay vì dùng `<section>` hoặc `<article>`.
+![Semantic](./B4-semantic.png)
+
+
+**2. Bảng (Table):**
+- Hiển thị nội dung: Thường dùng hiển thị Lịch sử giao dịch hoặc Bảng Size (kích cỡ quần áo).
+- Có dùng `<thead>`, `<tbody>` không: Các web lớn như Shopee thường tuân thủ rất nghiêm ngặt cấu trúc này.
+
+
+**3. Form:**
+- `action`: Thường trỏ tới một đường dẫn API (VD: `/api/v1/login` hoặc `/search`).
+- `method`: Thường là `POST` (với đăng nhập) hoặc `GET` (với ô tìm kiếm).
+- `input types`: `text` (ô nhập bình thường), `password` (ô mật khẩu che dấu sao).
+![Form](./B4-form.png)
+
+
+---
+
+## PHẦN C — SUY LUẬN (20 điểm)
+
+### Câu C1 (10đ) — Thiết kế cấu trúc HTML cho trang Chi tiết Sản phẩm
+
+```html
+<!-- KHUNG HTML CHUẨN SEMANTIC -->
+<header>
+    <!-- nav vì đây là thanh điều hướng chứa Logo, Menu, Giỏ hàng -->
+    <nav>...</nav>
+</header>
+
+<main>
+    <!-- nav (breadcrumb) vì đây là chuỗi đường dẫn cấp bậc trang -->
+    <nav aria-label="breadcrumb">
+        <ol>
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/dien-thoai">Điện thoại</a></li>
+            <li>iPhone 16 Pro</li>
+        </ol>
+    </nav>
+
+    <!-- article vì đây là toàn bộ khu vực mô tả trọn vẹn 1 sản phẩm -->
+    <article>
+        <!-- figure chứa cụm hình ảnh sản phẩm để dễ nhận diện -->
+        <figure>
+            <img src="..." alt="Ảnh SP 1">
+            <img src="..." alt="Ảnh SP 2">
+            <!-- ... 3 ảnh nữa -->
+        </figure>
+
+        <!-- section phân chia vùng Thông tin SP (Tên, Giá, Rate) -->
+        <section class="product-info">
+            <h1>iPhone 16 Pro</h1>
+            <p class="price">25.990.000đ</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+        </section>
+
+        <!-- section phân chia vùng Bảng thông số kỹ thuật -->
+        <section class="product-specs">
+            <table>
+                <!-- Chứa các tr, td -->
+            </table>
+        </section>
+
+        <!-- section phân chia vùng Bình luận/Đánh giá của khách hàng -->
+        <section class="comments">
+            <!-- Các bình luận -->
+        </section>
+    </article>
+    
+    <!-- aside vì nó là thành phần phụ (sản phẩm tương tự), không phải nội dung chính của bài viết này -->
+    <aside class="related-products">
+        <h3>Sản phẩm tương tự</h3>
+        <!-- Chứa danh sách SP -->
+    </aside>
+</main>
+
+<footer>
+    <!-- footer chứa thông tin bản quyền, công ty, link chính sách -->
+    <p>© 2026 ShopTLU</p>
+</footer>
+```
+
+### Câu C2 (10đ) — Phản biện quan điểm "Dùng toàn thẻ div cho rảnh nợ"
+
+**Quan điểm của đồng nghiệp:** *"Dùng <div> cho mọi thứ rồi thêm class là được, không cần semantic HTML. Tốn thời gian học thêm thẻ mới."*
+
+**Phản biện (200 từ):**
+Quan điểm đó tuy có thể giúp tiết kiệm thời gian gõ phím ban đầu nhưng lại gây ra hai tác hại công nghệ cực kỳ lớn về lâu dài. 
+
+Thứ nhất, về mặt SEO (Tối ưu hóa công cụ tìm kiếm): Google Bot là một cỗ máy mù màu. Nếu bạn vứt cho nó một rừng thẻ `<div>` lồng nhau (hội chứng Div Soup), nó sẽ không biết đâu là tiêu đề chính, đâu là đoạn văn, đâu là thanh menu. Việc mất đi định hướng này khiến trang web rớt thảm hại trên bảng xếp hạng tìm kiếm. Dùng Semantic HTML giúp bot "đọc" hiểu cấu trúc web một cách trực quan như đọc một cuốn sách.
+
+Thứ hai, về mặt Accessibility (Tiếp cận người khiếm thị): Những người khiếm thị sử dụng phần mềm Screen Reader phụ thuộc hoàn toàn vào thẻ. Nếu gặp thẻ `<nav>`, máy sẽ đọc to: "Khu vực Điều hướng". Còn nếu gặp `<div class="nav">`, máy chỉ hiểu đó là một cái hộp vô nghĩa.
+
+Ví dụ thực tế: Thẻ `<button>` luôn đi kèm chức năng nhấn (Space/Enter) khi người dùng xài bàn phím, trong khi thẻ `<div class="button">` thì mất tịt chức năng đó, lập trình viên phải hì hục code thêm bằng JavaScript. 
+
+Tuy nhiên, `<div>` vẫn vô cùng hữu dụng trong trường hợp bạn cần gom nhóm một loạt các thẻ lại (Wrapper) chỉ để bọc màu viền, đổ bóng bằng CSS mà không mang ý nghĩa nội dung gì.
