@@ -53,3 +53,55 @@
     - **Giao diện:** Một ô hình chữ nhật hiển thị màu sắc hiện tại. Bấm vào sẽ mở ra bảng màu (Color Picker) của hệ điều hành.
     - **Validation tự động:** Đảm bảo giá trị trả về luôn là mã màu HEX hợp lệ (VD: `#ff0000`).
     - **Use case E-Commerce:** Chức năng chọn màu sắc áo quần khi đặt hàng tùy chỉnh (Custom T-Shirt design).
+
+---
+
+### Câu A2 (5đ) — Validation Attributes
+
+**Dự đoán khi bấm Submit:**
+- **Trường hợp 1 (Để trống + `required`):** Trình duyệt sẽ chặn không cho Submit và hiển thị popup thông báo lỗi (vd: *"Please fill out this field"* / *"Vui lòng điền vào trường này"*). **Giải thích:** Thuộc tính `required` bắt buộc ô input không được bỏ trống.
+- **Trường hợp 2 (Nhập "abc" vào `type="email"`):** Trình duyệt chặn Submit và báo lỗi thiếu ký tự "@". **Giải thích:** Thuộc tính `type="email"` tự động kích hoạt bộ máy kiểm tra định dạng email chuẩn quốc tế.
+- **Trường hợp 3 (Nhập "15" vào `max="10"`):** Trình duyệt chặn Submit và báo lỗi giá trị phải nhỏ hơn hoặc bằng 10. **Giải thích:** Giá trị nhập vào nằm ngoài giới hạn cho phép của thuộc tính `max`.
+- **Trường hợp 4 (Nhập "abc123" vào `pattern="[0-9]{10}"`):** Trình duyệt chặn Submit và báo lỗi sai định dạng (vd: *"Please match the requested format"*). **Giải thích:** Thuộc tính `pattern` sử dụng Regex bắt buộc người dùng chỉ được phép nhập ĐÚNG 10 ký tự là số (từ 0 đến 9), nhưng user lại gõ chữ cái "abc" và độ dài chưa đủ 10.
+- **Trường hợp 5 (Nhập "123" vào `minlength="8"`):** Trình duyệt chặn Submit và báo lỗi độ dài tối thiểu phải là 8 ký tự. **Giải thích:** Thuộc tính `minlength` ép buộc độ dài của chuỗi văn bản nhập vào.
+
+*(Lưu ý: Kết quả screenshot thực tế bằng trình duyệt của 5 trường hợp trên:)*
+![TH1](./screenshots/th1.png)
+![TH2](./screenshots/th2.png)
+![TH3](./screenshots/th3.png)
+![TH4](./screenshots/th4.png)
+![TH5](./screenshots/th5.png)
+
+---
+
+### Câu A3 (5đ) — Accessibility
+1. **Tại sao `<label for="email">` quan trọng cho người dùng screen reader?**
+   Screen reader sẽ đọc to nội dung của label khi người khiếm thị focus vào ô input. Ngoài ra, việc dùng thuộc tính `for` (khớp chính xác với `id` của input) giúp tăng diện tích click chuột (người dùng bấm vào chữ thì con trỏ sẽ nhảy luôn vào ô nhập liệu), rất thân thiện trên thiết bị di động màn hình nhỏ.
+2. **Khi nào dùng `<fieldset>` + `<legend>`? Cho ví dụ cụ thể.**
+   Dùng để nhóm các input có chung một chủ đề lại với nhau, tạo thành một khung viền (fieldset) và có một tiêu đề (legend) giúp form dài trở nên có bố cục rõ ràng và screen reader dễ hiểu hơn. **Ví dụ:** Nhóm các nút Radio chọn Giới tính (Nam/Nữ) hoặc nhóm các trường nhập Địa chỉ (Số nhà/Phường/Quận).
+3. **`aria-label` dùng khi nào? Tại sao KHÔNG nên dùng `aria-label` khi đã có `<label>`?**
+   `aria-label` dùng khi một input KHÔNG CÓ chữ hiển thị ra ngoài màn hình để dùng làm thẻ `<label>` (VD: Nút chỉ có icon cái kính lúp để tìm kiếm). Không nên lạm dụng `aria-label` nếu đã xài `<label for="..">` vì nó sẽ gây trùng lặp, khiến screen reader đọc tên trường đó 2 lần làm người khiếm thị bị rối trí.
+
+---
+
+### Câu A4 (5đ) — Media
+1. **Giải thích thuộc tính `loading="lazy"` trên thẻ `<img>`. Cải thiện gì? Khi nào KHÔNG dùng?**
+   Nó yêu cầu trình duyệt CHỈ tải hình ảnh khi người dùng cuộn chuột tới vùng chứa ảnh đó. Giúp cải thiện tốc độ tải trang ban đầu (Page Load Speed) và tiết kiệm băng thông. KHÔNG nên dùng cho các bức ảnh nằm ngay trên cùng của trang web (vùng above-the-fold như Logo, Banner chính) vì ta cần chúng phải hiện ngay lập tức để giữ chân user.
+2. **Tại sao nên cung cấp nhiều `<source>` trong thẻ `<video>`? 3 format phổ biến?**
+   Vì mỗi trình duyệt (Chrome, Safari, Firefox) hỗ trợ một chuẩn giải mã video khác nhau. Việc cung cấp nhiều thẻ `<source>` đảm bảo video luôn chạy được bất kể user dùng trình duyệt gì (Trình duyệt sẽ tự chọn source đầu tiên mà nó hỗ trợ). 3 format phổ biến: `.mp4`, `.webm`, `.ogg`.
+3. **Thuộc tính `alt` trên `<img>` dùng để làm gì? Viết `alt` tốt cho 3 trường hợp:**
+   Thuộc tính `alt` (Alternative Text) hiển thị chữ thay thế khi ảnh bị lỗi mạng, dùng để máy đọc màn hình đọc cho người khiếm thị nghe, và giúp Google Bot index SEO hình ảnh.
+   - Ảnh sản phẩm iPhone 16: `alt="Điện thoại iPhone 16 Pro Max 256GB màu Titan tự nhiên"`
+   - Ảnh trang trí (decorative): `alt=""` (Để trống cố ý để screen reader bỏ qua, không đọc lảm nhảm làm phiền user).
+   - Ảnh biểu đồ doanh thu: `alt="Biểu đồ cột hiển thị doanh thu Quý 1 năm 2026 tăng 20% so với cùng kỳ"`
+
+---
+
+### Câu A5 (5đ) — So sánh `<figure>` vs `<img>`
+- **Dùng Cách 1 (`<img>` trơn):** Khi bức ảnh chỉ mang tính chất minh họa đơn giản, không cần giải thích gì thêm, hoặc là thành phần phụ của giao diện.
+  - *Ví dụ 1:* Logo công ty ở thanh menu header.
+  - *Ví dụ 2:* Các icon nhỏ trên website (như icon giỏ hàng, avatar người dùng).
+- **Dùng Cách 2 (`<figure>` + `<figcaption>`):** Khi bức ảnh mang thông tin quan trọng, cần có một đoạn văn bản (caption) đi kèm giải thích rõ nội dung bức ảnh, và cụm ảnh+chữ đó là một khối độc lập không thể tách rời.
+  - *Ví dụ 1:* Ảnh của một biểu đồ số liệu trong bài báo khoa học kèm dòng chú thích "Biểu đồ 1.1: Tỉ lệ tăng trưởng năm 2026".
+  - *Ví dụ 2:* Ảnh sản phẩm trong danh sách E-commerce bắt buộc phải đi kèm chú thích Tên và Giá tiền.
+
