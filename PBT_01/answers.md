@@ -100,7 +100,7 @@ Dòng 5: Hộp 3
 **2. Bảng (Table):**
 - Hiển thị nội dung: Thường dùng hiển thị Lịch sử giao dịch hoặc Bảng Size (kích cỡ quần áo).
 - Có dùng `<thead>`, `<tbody>` không: Các web lớn như Shopee thường tuân thủ rất nghiêm ngặt cấu trúc này.
-
+//ko tìm thấy ạ
 
 **3. Form:**
 - `action`: Thường trỏ tới một đường dẫn API (VD: `/api/v1/login` hoặc `/search`).
@@ -188,3 +188,7 @@ Thứ hai, về mặt Accessibility (Tiếp cận người khiếm thị): Nhữ
 Ví dụ thực tế: Thẻ `<button>` luôn đi kèm chức năng nhấn (Space/Enter) khi người dùng xài bàn phím, trong khi thẻ `<div class="button">` thì mất tịt chức năng đó, lập trình viên phải hì hục code thêm bằng JavaScript. 
 
 Tuy nhiên, `<div>` vẫn vô cùng hữu dụng trong trường hợp bạn cần gom nhóm một loạt các thẻ lại (Wrapper) chỉ để bọc màu viền, đổ bóng bằng CSS mà không mang ý nghĩa nội dung gì.
+
+
+
+ **Link Video Thực Hành:** [https://drive.google.com/drive/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl?usp=drive_link]
