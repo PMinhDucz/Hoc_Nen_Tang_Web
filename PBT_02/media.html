@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đa Phương Tiện - PBT02</title>
+</head>
+
+<body>
+    <header>
+        <svg width="250" height="60" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Shop Của Đức">
+            <rect width="250" height="60" rx="10" fill="#2c3e50" />
+            <circle cx="30" cy="30" r="15" fill="#e74c3c" />
+            <text x="55" y="38" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" font-weight="bold">SHOP
+                CỦA ĐỨC</text>
+        </svg>
+
+        <h1>Trải Nghiệm Sản Phẩm Đa Phương Tiện</h1>
+        <nav>
+            <a href="#hinh-anh">Hình ảnh</a> |
+            <a href="#audio-gioi-thieu">Âm thanh</a> |
+            <a href="#video-goc">Video Web</a> |
+            <a href="#video-youtube">Video YouTube</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <section id="hinh-anh">
+            <h2>1. Hình ảnh Sản Phẩm (Dùng Figure & Lazy Load)</h2>
+
+            <article>
+                <figure>
+                    <img src="https://placehold.co/600x400/2980b9/FFF/png?text=Macbook+Pro+16"
+                        alt="Laptop Macbook Pro 16 inch màu xanh" loading="lazy" style="max-width: 100%; height: auto;">
+                    <figcaption>Macbook Pro 16 inch M3 Max - Cỗ máy trạm di động</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="https://placehold.co/600x400/d35400/FFF/png?text=iPhone+16+Pro"
+                        alt="Điện thoại iPhone 16 Pro Max Titan" loading="lazy" style="max-width: 100%; height: auto;">
+                    <figcaption>iPhone 16 Pro Max 256GB - Đỉnh cao công nghệ</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="https://placehold.co/600x400/27ae60/FFF/png?text=Apple+Watch+Ultra"
+                        alt="Đồng hồ Apple Watch Ultra dây cam" loading="lazy" style="max-width: 100%; height: auto;">
+                    <figcaption>Apple Watch Ultra 2 - Bạn đồng hành dân thể thao</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="audio-gioi-thieu">
+            <h2>2. Nhạc nền giới thiệu (Thẻ Audio)</h2>
+            <p>Bật bản nhạc không lời này lên cho có không khí chốt đơn nhé:</p>
+            <audio controls preload="metadata">
+                <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Rất tiếc, trình duyệt của bạn quá cũ và không hỗ trợ nghe nhạc trên Web.
+            </audio>
+        </section>
+
+        <hr>
+
+        <section id="video-goc">
+            <h2>3. Video Tính Năng (Thẻ Video Gốc)</h2>
+            <p>Đây là file video được lưu thẳng trên máy chủ của Web, không phụ thuộc vào YouTube.</p>
+            <video controls poster="https://placehold.co/800x450/000000/FFFFFF/png?text=Click+vao+day+de+Play"
+                style="max-width: 100%; height: auto; width: 600px;">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                Rất tiếc, trình duyệt của bạn không hỗ trợ xem video.
+            </video>
+        </section>
+
+        <hr>
+
+        <section id="video-youtube">
+            <h2>4. Nhúng Iframe YouTube</h2>
+            <p>LCK:</p>
+            <iframe width="500" height="280" src="https://www.youtube.com/embed/XyWF0Z_AemA"
+                title="Bình Luận Tiếng Việt: T1 vs BFX l l NS vs GEN | LCK 2026" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Phạm Minh Đức. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
