@@ -12,7 +12,7 @@
             như thế nào, sau đó <strong>Chụp màn hình (Screenshot)</strong> lại nhé!</em></p>
 
     <div class="test-case">
-        <h3>Trường hợp 1: Để trống (Required)</h3>
+        <h2>Trường hợp 1: Để trống (Required)</h2>
         <form action="#">
             <input type="text" required value="">
             <button type="submit">Submit TH1</button>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="test-case">
-        <h3>Trường hợp 2: Sai định dạng (Type Email)</h3>
+        <h2>Trường hợp 2: Sai định dạng (Type Email)</h2>
         <form action="#">
             <input type="email" value="abc">
             <button type="submit">Submit TH2</button>
@@ -28,15 +28,15 @@
     </div>
 
     <div class="test-case">
-        <h3>Trường hợp 3: Vượt quá giới hạn (Max=10)</h3>
+        <h2>Trường hợp 3: Vượt quá giới hạn (Max=10)</h2>
         <form action="#">
             <input type="number" min="1" max="10" value="15">
-            <button type="submit">Submit TH3</button>
+            <button type="submit">Submit Th1</button>
         </form>
     </div>
 
     <div class="test-case">
-        <h3>Trường hợp 4: Sai cú pháp quy định (Pattern Regex)</h3>
+        <h2>Trường hợp 4: Sai cú pháp quy định (Pattern Regex)</h2>
         <form action="#">
             <input type="text" pattern="[0-9]{10}" value="abc123">
             <button type="submit">Submit TH4</button>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="test-case">
-        <h3>Trường hợp 5: Quá ngắn (Minlength=8)</h3>
+        <h2>Trường hợp 5: Quá ngắn (Minlength=8)</h2>
         <form action="#">
             <input type="password" minlength="8">
             <button type="submit">Submit TH5</button>
