@@ -33,3 +33,20 @@
 **Trả lời Câu hỏi thêm: Nếu 1 thẻ có cả 3 cách cùng áp dụng, cách nào "thắng"?**
 - **Trạng thái:** Inline CSS sẽ giành chiến thắng chung cuộc (Thẻ H1 sẽ mang màu của Inline).
 - **Giải thích:** Dựa vào nguyên lý **Độ ưu tiên (Specificity)** trong CSS. Trình duyệt xếp hạng Inline CSS ở mức điểm cao nhất (1,0,0,0) vì nó nằm ngay trên xác thịt của thẻ HTML. Internal và External được xếp cùng mức điểm (dựa vào thứ tự thẻ Selector), nhưng không thể nào đâm xuyên qua được cái khiên ưu tiên tuyệt đối của Inline CSS (trừ phi dùng `!important`).
+
+---
+
+### Câu A2 (8đ) — CSS Selectors — Dự đoán kết quả
+
+**Phân tích và dự đoán (Không chạy code):**
+Dựa vào kiến thức về CSS Selectors, dưới đây là kết quả dự đoán những thành phần nào trên trang HTML sẽ bị các Selector này "tóm" được:
+
+1. `h1` → Chọn: **Thẻ `<h1>` duy nhất chứa dòng chữ "ShopTLU"**. (Đây là Element Selector cơ bản).
+2. `.price` → Chọn: **2 thẻ `<p>` chứa giá tiền "25.990.000đ" và "45.990.000đ"**. (Đây là Class Selector).
+3. `#app header` → Chọn: **Toàn bộ khối `<header>`** (bao gồm cả H1 và Nav) nằm bên trong thẻ có ID là `app`. (Descendant Selector).
+4. `nav a:first-child` → Chọn: **Thẻ `<a>` đầu tiên** nằm trong `<nav>`, tức là link chữ **"Home"**. (Pseudo-class Selector).
+5. `.product.featured h2` → Chọn: **Thẻ `<h2>` chứa dòng chữ "MacBook Pro"**. (Giải thích: Đi tìm thẻ `h2` nằm trong phần tử mang ĐỒNG THỜI 2 class là `product` VÀ `featured`).
+6. `article > p` → Chọn: **TẤT CẢ 4 thẻ `<p>`** chứa giá tiền và mô tả của cả iPhone và MacBook. (Giải thích: Dấu `>` là Child Selector, bắt tất cả thẻ `p` là con TRỰC TIẾP của thẻ `article`).
+7. `a[href="/"]` → Chọn: **Thẻ `<a>` chứa dòng chữ "Home"**. (Đây là Attribute Selector, chỉ bắt thẻ a có chính xác đường dẫn là `/`).
+8. `.top-bar.dark h1` → Chọn: **Thẻ `<h1>` chứa dòng chữ "ShopTLU"**. (Giải thích: Bắt thẻ `h1` nằm trong phần tử mang đồng thời class `top-bar` và `dark`).
+
