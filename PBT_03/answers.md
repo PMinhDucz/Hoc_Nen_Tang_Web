@@ -50,3 +50,27 @@ Dựa vào kiến thức về CSS Selectors, dưới đây là kết quả dự 
 7. `a[href="/"]` → Chọn: **Thẻ `<a>` chứa dòng chữ "Home"**. (Đây là Attribute Selector, chỉ bắt thẻ a có chính xác đường dẫn là `/`).
 8. `.top-bar.dark h1` → Chọn: **Thẻ `<h1>` chứa dòng chữ "ShopTLU"**. (Giải thích: Bắt thẻ `h1` nằm trong phần tử mang đồng thời class `top-bar` và `dark`).
 
+---
+
+### Câu A3 (7đ) — Box Model — Tính toán kích thước
+
+**1. Trường hợp 1: content-box (mặc định)**
+- **Chiều rộng hiển thị (Visible width):** `450px`
+  *Cách tính:* Lấy Content Width (400) + Padding trái/phải (20x2) + Border trái/phải (5x2) = 400 + 40 + 10 = 450px. (Đây là chiều rộng của hình hộp mà mắt thường nhìn thấy).
+- **Không gian chiếm trên trang (Total space):** `470px`
+  *Cách tính:* Lấy Chiều rộng hiển thị (450) + Margin trái/phải (10x2) = 470px.
+
+**2. Trường hợp 2: border-box**
+- **Chiều rộng hiển thị (Visible width):** `400px`
+  *Cách tính:* Vì dùng `border-box`, thuộc tính `width: 400px` chính là chốt cứng kích thước tổng của cả Content + Padding + Border. Nên cái hộp nhìn thấy bằng mắt đúng bằng 400px.
+- **Kích thước content thực tế:** `350px`
+  *Cách tính:* Do tổng bị khóa ở 400px, phần content ở giữa bị bóp lại: 400 - Padding (40) - Border (10) = 350px.
+- **Không gian chiếm trên trang:** `420px`
+  *Cách tính:* Lấy Chiều rộng hiển thị (400) + Margin trái/phải (20) = 420px.
+
+**3. Trường hợp 3: Margin collapse (Gộp Margin)**
+- **Khoảng cách giữa box-a và box-b:** `40px`
+- **Giải thích tại sao KHÔNG PHẢI 65px:** Đây là một "cú lừa" kinh điển trong CSS mang tên **Margin Collapse** (Gộp lề). Khi hai phần tử khối (block element) đứng xếp chồng lên nhau (trên-dưới), lề dưới của khối trên và lề trên của khối dưới sẽ **KHÔNG cộng dồn** vào nhau (25 + 40 = 65). Thay vào đó, chúng sẽ tự xuyên qua nhau, và trình duyệt chỉ **lấy con số nào LỚN HƠN** (trong trường hợp này là 40px) để làm khoảng cách cuối cùng.
+- **Câu hỏi nâng cao:** Nếu `.box-a` có `margin-bottom: -10px` và `.box-b` có `margin-top: 40px`, khoảng cách sẽ là: `30px`. 
+  *Giải thích:* Theo luật Margin Collapse có giá trị âm, trình duyệt sẽ lấy margin Dương (40) thực hiện phép tính cộng đại số với margin Âm (-10) sinh ra kết quả: 40 + (-10) = 30px.
+
