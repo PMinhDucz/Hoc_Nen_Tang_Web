@@ -74,3 +74,28 @@ Dựa vào kiến thức về CSS Selectors, dưới đây là kết quả dự 
 - **Câu hỏi nâng cao:** Nếu `.box-a` có `margin-bottom: -10px` và `.box-b` có `margin-top: 40px`, khoảng cách sẽ là: `30px`. 
   *Giải thích:* Theo luật Margin Collapse có giá trị âm, trình duyệt sẽ lấy margin Dương (40) thực hiện phép tính cộng đại số với margin Âm (-10) sinh ra kết quả: 40 + (-10) = 30px.
 
+---
+
+### Câu A4 (5đ) — Specificity (Độ ưu tiên)
+
+Cho phần tử `<p class="price" id="main-price">` và 4 Rule CSS tương ứng.
+
+**1. Tính điểm Specificity (a, b, c)**
+*Công thức: (ID, Class/Pseudo-class/Attribute, Element/Pseudo-element)*
+- `p { color: black; }` (Rule A) → **0, 0, 1** (Vì chỉ có 1 thẻ HTML).
+- `.price { color: blue; }` (Rule B) → **0, 1, 0** (Vì chỉ có 1 class).
+- `#main-price { color: red; }` (Rule C) → **1, 0, 0** (Vì chỉ có 1 ID).
+- `p.price { color: green; }` (Rule D) → **0, 1, 1** (Vì có 1 thẻ HTML và 1 class).
+
+**2. Element sẽ hiển thị màu gì? Tại sao?**
+- **Kết quả:** Element sẽ có màu **Đỏ (Red)**.
+- **Giải thích:** Dựa vào bảng điểm ở trên, Rule C (`#main-price`) có điểm Specificity cao nhất là (1,0,0). Trong CSS, ID luôn luôn có trọng số cao hơn Class và Element cộng lại. Nên nó sẽ đè bẹp tất cả các màu khác.
+
+**3. Nếu thêm Inline CSS `style="color: orange;"`, element có màu gì?**
+- **Kết quả:** Element sẽ có màu **Cam (Orange)**.
+- **Giải thích:** Thuộc tính `style="..."` được gọi là Inline CSS. Mức độ ưu tiên của nó là tuyệt đối (1,0,0,0), cao hơn tất cả mọi loại ID hay Class được khai báo ở bên ngoài hoặc bên trong thẻ `<style>`.
+
+**4. Nếu Rule A thêm `!important` (`p { color: black !important; }`), màu gì? Tại sao?**
+- **Kết quả:** Element sẽ hiển thị màu **Đen (Black)**.
+- **Giải thích:** Từ khóa `!important` là **"Vũ khí tối thượng"** trong CSS. Nó phá vỡ mọi quy luật tính điểm Specificity thông thường. Bất cứ luật nào gắn `!important` sẽ tự động nhảy lên vị trí Vua, đè bẹp ID, Class, Element và đè chết luôn cả Inline CSS (trừ phi Inline CSS đó cũng dùng `!important`).
+
