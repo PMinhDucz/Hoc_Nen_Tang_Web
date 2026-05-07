@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Lỗi Vỡ Layout - Câu C1</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        h1, h2 { text-align: center; }
+
+        /* Container chuẩn 960px */
+        .container {
+            width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            padding-bottom: 20px;
+            overflow: hidden; /* Clear float */
+            border: 2px dashed red;
+        }
+
+        /* GIAO DIỆN BỊ LỖI BAN ĐẦU */
+        .sidebar-bug {
+            width: 300px; padding: 20px; border: 1px solid #ccc; float: left;
+            background-color: #ffcccc;
+        }
+        .content-bug {
+            width: 660px; padding: 30px; border: 1px solid #ccc; float: left;
+            background-color: #ccddff;
+        }
+
+        /* CÁCH 1: DÙNG BORDER-BOX */
+        .sidebar-fix1 {
+            box-sizing: border-box; /* Ép cứng tổng kích thước */
+            width: 300px; padding: 20px; border: 1px solid #ccc; float: left;
+            background-color: #ccffcc;
+        }
+        .content-fix1 {
+            box-sizing: border-box; /* Ép cứng tổng kích thước */
+            width: 660px; padding: 30px; border: 1px solid #ccc; float: left;
+            background-color: #ffffcc;
+        }
+
+        /* CÁCH 2: THAY ĐỔI THUỘC TÍNH WIDTH */
+        .sidebar-fix2 {
+            /* 300 - 40(padding) - 2(border) = 258px */
+            width: 258px; padding: 20px; border: 1px solid #ccc; float: left;
+            background-color: #e6ccff;
+        }
+        .content-fix2 {
+            /* 660 - 60(padding) - 2(border) = 598px */
+            width: 598px; padding: 30px; border: 1px solid #ccc; float: left;
+            background-color: #ffe6cc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Câu C1: Demo Sửa Lỗi Vỡ Layout</h1>
+
+    <h2>1. Code gốc (Lỗi vỡ layout)</h2>
+    <div class="container">
+        <div class="sidebar-bug">Sidebar (Lỗi)</div>
+        <div class="content-bug">Content (Bị rớt xuống dòng)</div>
+    </div>
+
+    <h2>2. Cách sửa 1: box-sizing: border-box</h2>
+    <div class="container">
+        <div class="sidebar-fix1">Sidebar</div>
+        <div class="content-fix1">Content đã hiển thị đúng</div>
+    </div>
+
+    <h2>3. Cách sửa 2: Thay đổi thuộc tính width</h2>
+    <div class="container">
+        <div class="sidebar-fix2">Sidebar</div>
+        <div class="content-fix2">Content đã hiển thị đúng</div>
+    </div>
+
+</body>
+</html>

@@ -99,3 +99,25 @@ Cho phần tử `<p class="price" id="main-price">` và 4 Rule CSS tương ứng
 - **Kết quả:** Element sẽ hiển thị màu **Đen (Black)**.
 - **Giải thích:** Từ khóa `!important` là **"Vũ khí tối thượng"** trong CSS. Nó phá vỡ mọi quy luật tính điểm Specificity thông thường. Bất cứ luật nào gắn `!important` sẽ tự động nhảy lên vị trí Vua, đè bẹp ID, Class, Element và đè chết luôn cả Inline CSS (trừ phi Inline CSS đó cũng dùng `!important`).
 
+---
+
+## PHẦN C — DEBUG & SUY LUẬN
+
+### Câu C1 (10đ) — Debug CSS Layout (Vỡ giao diện)
+
+**1. Tính chiều rộng thực tế (Chế độ mặc định content-box)**
+- **Chiều rộng thực tế Sidebar:** `342px` (Cách tính: Width 300 + Padding Trái/Phải 40 + Border Trái/Phải 2).
+- **Chiều rộng thực tế Content:** `722px` (Cách tính: Width 660 + Padding Trái/Phải 60 + Border Trái/Phải 2).
+
+**2. Giải thích nguyên nhân vỡ layout**
+- Tổng chiều rộng thực tế của hai khối này cộng lại là: `342 + 722 = 1064px`.
+- Trong khi đó, container chứa chúng chỉ rộng `960px`. Vì `1064px > 960px`, không đủ chỗ chứa trên cùng một hàng, nên phần content bị đẩy xuống hàng dưới.
+
+**3. Hai cách sửa lỗi**
+- **Cách 1 (Sử dụng box-sizing):** Thêm thuộc tính `box-sizing: border-box;` vào cả sidebar và content. Lúc này, width 300px và 660px sẽ bao gồm cả padding và border. Tổng kích thước sẽ vừa khít `300 + 660 = 960px`.
+- **Cách 2 (Trừ trực tiếp kích thước width):** Giữ nguyên `content-box`, nhưng giảm giá trị width của 2 khối.
+  - Sidebar sửa thành: `width: 258px;` (300 - 40 - 2)
+  - Content sửa thành: `width: 598px;` (660 - 60 - 2)
+  - Tổng chiều rộng sẽ về đúng 960px.
+*(Đã đính kèm file `debug_layout.html` để chứng minh 2 cách sửa này).*
+
