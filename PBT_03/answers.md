@@ -97,3 +97,24 @@ Cách 1: Thêm thuộc tính box-sizing: border-box vào sidebar và content. L�
 Cách 2: Cứ để content-box nhưng sửa tay lại width cho nhỏ đi. Sidebar sửa width còn 258px. Content sửa width còn 598px. Cộng lại đúng 960px là ko bị rớt dòng.
 (Có file debug_layout.html kèm theo)
 
+---
+
+### Câu C2 (10đ) — Cascade Puzzle
+
+1. "Sản phẩm A" (thẻ h2) có font-size = 20px và color = green.
+- Giải thích:
+  - Về font-size: Thẻ này ăn thuộc tính từ rule .card .title { font-size: 20px; }.
+  - Về color: Đáng lẽ nó màu đỏ theo #featured .title, nhưng nó lại ôm class .highlight có kẹp từ khóa !important (color: green !important;). Cái này là chùm cuối phá vỡ mọi quy luật nên nó đè bẹp màu đỏ, ép thành màu xanh lá (green).
+
+2. "Mô tả sản phẩm" (thẻ p) có color = blue.
+- Giải thích: Thẻ p này bị dính rule .card p { color: inherit; }. Thuộc tính inherit bắt buộc nó phải chạy đi xin màu của cha. Cha của nó là thẻ div mang class card (đang có rule .card { color: blue; }). Kế thừa cha nên nó ra màu xanh dương (blue).
+
+3. "Sản phẩm B" (thẻ h2) có font-size = 20px và color = blue.
+- Giải thích:
+  - Về font-size: Tương tự như trên, do nó mang class .title nằm trong .card nên nhận 20px.
+  - Về color: Thẻ h2 này không bị áp đặt màu trực tiếp nào cả. CSS có tính chất thả trôi (Cascade/Inheritance), nếu không ai quản lý thì nó sẽ bắt chước màu của cha. Thẻ cha .card đang giữ color: blue; nên nó ra màu xanh blue nốt.
+
+4. "Mô tả sản phẩm B" (thẻ p) có color = green.
+- Giải thích: Khỏi phải nghĩ, vì nó có mang class .highlight chứa bùa hộ mệnh !important nên auto ra màu green.
+
+(Có 2 file cascade_test.html và cascade_test.css để chứng minh kết quả thực tế)
