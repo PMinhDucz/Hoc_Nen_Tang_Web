@@ -118,3 +118,16 @@ Cách 2: Cứ để content-box nhưng sửa tay lại width cho nhỏ đi. Side
 - Giải thích: Khỏi phải nghĩ, vì nó có mang class .highlight chứa bùa hộ mệnh !important nên auto ra màu green.
 
 (Có 2 file cascade_test.html và cascade_test.css để chứng minh kết quả thực tế)
+
+---
+
+## PHẦN B — THỰC HÀNH CODE
+
+### Bài B1 (20đ) — Style trang Profile
+
+**Danh sách 5 loại Selector khác nhau đã sử dụng trong file `style.css`:**
+1. **Element Selector (Thẻ HTML):** `body`, `header`, `footer`... (Chọn trực tiếp tên thẻ để style cơ bản).
+2. **Class Selector (Lớp):** `.skills-table`, `.profile-img`, `.active`... (Chọn các phần tử mang class cụ thể để tái sử dụng giao diện).
+3. **ID Selector (Định danh duy nhất):** `#lien-he` (Áp dụng style viền tím và khung shadow mỏng riêng biệt cho khu vực thông tin liên hệ).
+4. **Descendant Selector (Cha-Con):** `nav a`, `#lien-he h3`, `.skills-table thead tr`... (Chọn thẻ con nằm sâu bên trong thẻ cha để tránh ảnh hưởng ra ngoài).
+5. **Pseudo-class Selector (Trạng thái ảo):** `nav a:hover` (Khi di chuột vào đổi màu), `.skills-table tbody tr:nth-child(even)` (Tạo vằn ngựa Zebra cho bảng), `.skills-table tbody tr:hover` (Highlight dòng khi đưa chuột vào).
