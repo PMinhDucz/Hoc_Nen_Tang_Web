@@ -125,9 +125,19 @@ Cách 2: Cứ để content-box nhưng sửa tay lại width cho nhỏ đi. Side
 
 ### Bài B1 (20đ) — Style trang Profile
 
-**Danh sách 5 loại Selector khác nhau đã sử dụng trong file `style.css`:**
-1. **Element Selector (Thẻ HTML):** `body`, `header`, `footer`... (Chọn trực tiếp tên thẻ để style cơ bản).
-2. **Class Selector (Lớp):** `.skills-table`, `.profile-img`, `.active`... (Chọn các phần tử mang class cụ thể để tái sử dụng giao diện).
-3. **ID Selector (Định danh duy nhất):** `#lien-he` (Áp dụng style viền tím và khung shadow mỏng riêng biệt cho khu vực thông tin liên hệ).
-4. **Descendant Selector (Cha-Con):** `nav a`, `#lien-he h3`, `.skills-table thead tr`... (Chọn thẻ con nằm sâu bên trong thẻ cha để tránh ảnh hưởng ra ngoài).
-5. **Pseudo-class Selector (Trạng thái ảo):** `nav a:hover` (Khi di chuột vào đổi màu), `.skills-table tbody tr:nth-child(even)` (Tạo vằn ngựa Zebra cho bảng), `.skills-table tbody tr:hover` (Highlight dòng khi đưa chuột vào).
+Danh sách 5 loại Selector khác nhau đã sử dụng trong file style.css:
+1. Element Selector (Thẻ HTML): body, header, footer... (Chọn trực tiếp tên thẻ để style cơ bản).
+2. Class Selector (Lớp): .skills-table, .profile-img, .active... (Chọn các phần tử mang class cụ thể để tái sử dụng giao diện).
+3. ID Selector (Định danh duy nhất): #lien-he (Áp dụng style viền tím và khung shadow mỏng riêng biệt cho khu vực thông tin liên hệ).
+4. Descendant Selector (Cha-Con): nav a, #lien-he h3, .skills-table thead tr... (Chọn thẻ con nằm sâu bên trong thẻ cha để tránh ảnh hưởng ra ngoài).
+5. Pseudo-class Selector (Trạng thái ảo): nav a:hover (Khi di chuột vào đổi màu), .skills-table tbody tr:nth-child(even) (Tạo vằn ngựa Zebra cho bảng), .skills-table tbody tr:hover (Highlight dòng khi đưa chuột vào).
+
+### Bài B2 (20đ) — Box Model Lab
+
+Phần 1 — Chứng minh content-box vs border-box:
+Hộp 1 (content-box): chiều rộng thực tế = 350px (Đo từ DevTools, tính bằng 300 width cộng 40 padding cộng 10 border).
+Hộp 2 (border-box): chiều rộng thực tế = 300px (Đo từ DevTools, do border-box ép tổng kích thước luôn bằng đúng width).
+Giải thích sự khác biệt: content-box cộng thêm viền và lề trong vào kích thước ban đầu làm hộp phình to ra. border-box thì thông minh hơn, nó sẽ bóp nghẹt nội dung bên trong lại để giữ nguyên kích thước hộp như đã khai báo, giúp code không bao giờ bị vỡ layout.
+
+Phần 2 — Layout 3 cột:
+(Screenshot chứng minh vỡ layout do content-box và kết quả sau khi fix bằng border-box đã được lưu trong thư mục screenshots)

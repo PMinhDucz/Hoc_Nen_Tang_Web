@@ -1,0 +1,64 @@
+/* Bài B2 - Box Model Lab */
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* -------------------------------------
+   PHẦN 1: SO SÁNH 2 LOẠI BOX-SIZING 
+   ------------------------------------- */
+.test-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: #f1c40f;
+}
+
+.box-content {
+    box-sizing: content-box; /* Mặc định */
+}
+
+.box-border {
+    box-sizing: border-box; /* Ép cứng tổng kích thước 300px */
+}
+
+/* -------------------------------------
+   PHẦN 2: LAYOUT 3 CỘT (CONTAINER 1000px)
+   ------------------------------------- */
+.layout-container {
+    width: 1000px;
+    margin: 0 auto;
+    border: 2px dashed red;
+    overflow: hidden; /* Clear float */
+}
+
+.col {
+    float: left;
+    /* Dòng quan trọng: Tắt dòng này đi là tổng 3 cột vượt quá 1000px gây rớt dòng vỡ layout */
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #ecf0f1;
+}
+
+.content {
+    width: 500px;
+    padding: 20px;
+    background-color: #bdc3c7;
+}
+
+.ads {
+    width: 250px;
+    padding: 15px;
+    background-color: #ecf0f1;
+}
