@@ -141,3 +141,25 @@ Giải thích sự khác biệt: content-box cộng thêm viền và lề trong 
 
 Phần 2 — Layout 3 cột:
 (Screenshot chứng minh vỡ layout do content-box và kết quả sau khi fix bằng border-box đã được lưu trong thư mục screenshots)
+
+### Bài B3 (15đ) — Specificity Battle
+
+1. Liệt kê 10 CSS rules và Specificity Score (sắp xếp từ thấp đến cao):
+Rule 1: p { color: black; } -> Điểm: 0, 0, 1
+Rule 2: .text { color: gray; } -> Điểm: 0, 1, 0
+Rule 3: p.text { color: brown; } -> Điểm: 0, 1, 1
+Rule 4: .text.highlight { color: pink; } -> Điểm: 0, 2, 0
+Rule 5: p.text.highlight { color: purple; } -> Điểm: 0, 2, 1
+Rule 6: #demo { color: orange; } -> Điểm: 1, 0, 0
+Rule 7: p#demo { color: yellow; } -> Điểm: 1, 0, 1
+Rule 8: #demo.text { color: cyan; } -> Điểm: 1, 1, 0
+Rule 9: #demo.text.highlight { color: blue; } -> Điểm: 1, 2, 0
+Rule 10: p#demo.text.highlight { color: red; } -> Điểm: 1, 2, 1
+
+2. Element hiển thị màu gì? Tại sao?
+Kết quả: Chữ "Hello World" sẽ hiển thị màu Đỏ (Red). 
+Giải thích: Vì Rule số 10 hội tụ đủ 1 ID + 2 Class + 1 Element sinh ra số điểm Specificity cao nhất (1, 2, 1) trong tất cả 10 luật. Ai điểm cao nhất người đó thắng và có quyền tô màu.
+
+3. Thay đổi thứ tự rules trong file CSS, kết quả có đổi không? Giải thích.
+Kết quả: Màu sắc KHÔNG HỀ THAY ĐỔI (Vẫn là màu đỏ).
+Giải thích: Cơ chế Specificity ưu tiên xét ĐIỂM SỐ trước. Dù bạn có mang Rule 10 cắt và dán lên tận dòng đầu tiên của file CSS, thì nó vẫn vô đối vì điểm nó cao nhất. Thứ tự code (trên hay dưới) chỉ được trình duyệt dùng đến để quyết định thắng thua khi 2 rule có SỐ ĐIỂM BẰNG Y CHANG NHAU (luật ai viết sau thì kẻ đó thắng).

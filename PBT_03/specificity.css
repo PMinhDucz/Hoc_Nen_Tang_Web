@@ -1,0 +1,32 @@
+/* Bài B3 - Specificity Battle */
+/* Sắp xếp từ YẾU NHẤT đến MẠNH NHẤT */
+
+/* 1. Element Selector (0, 0, 1) */
+p { color: black; }
+
+/* 2. 1 Class (0, 1, 0) */
+.text { color: gray; }
+
+/* 3. 1 Class + 1 Element (0, 1, 1) */
+p.text { color: brown; }
+
+/* 4. 2 Class (0, 2, 0) */
+.text.highlight { color: pink; }
+
+/* 5. 2 Class + 1 Element (0, 2, 1) */
+p.text.highlight { color: purple; }
+
+/* 6. 1 ID (1, 0, 0) */
+#demo { color: orange; }
+
+/* 7. 1 ID + 1 Element (1, 0, 1) */
+p#demo { color: yellow; }
+
+/* 8. 1 ID + 1 Class (1, 1, 0) */
+#demo.text { color: cyan; }
+
+/* 9. 1 ID + 2 Class (1, 2, 0) */
+#demo.text.highlight { color: blue; }
+
+/* 10. MẠNH NHẤT: 1 ID + 2 Class + 1 Element (1, 2, 1) */
+p#demo.text.highlight { color: red; }
