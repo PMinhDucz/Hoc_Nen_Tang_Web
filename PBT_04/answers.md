@@ -40,3 +40,36 @@ Trả lời câu hỏi thêm:
 - Nearest positioned ancestor là gì? Là phần tử tổ tiên (cha, ông nội, cố...) gần nhất tính từ phần tử hiện tại đi ngược lên trên, mà có thuộc tính position khác static. Trình duyệt sẽ lấy tọa độ của phần tử tổ tiên đó làm mốc định vị cho phần tử absolute.
 
 ---
+
+### Câu A2 (10đ) — Flexbox vs Grid
+
+Trường hợp 1: .container { display: flex; } .item { flex: 1; } (4 items)
+- Bố cục: 4 phần tử xếp sát nhau trên 1 hàng duy nhất từ trái qua phải. Do có flex: 1 nên mỗi item sẽ co giãn chia đều nhau, mỗi item chiếm đúng 25% chiều rộng container.
+- Sơ đồ text:
+[ Item 1 (25%) ] [ Item 2 (25%) ] [ Item 3 (25%) ] [ Item 4 (25%) ]
+
+Trường hợp 2: .container { display: flex; flex-wrap: wrap; } .item { width: 45%; margin: 2.5%; } (6 items)
+- Bố cục: Flexbox cho phép bẻ dòng (wrap). Mỗi item chiếm tổng cộng 50% chiều rộng (45% width + 5% margin 2 bên). Do đó mỗi hàng sẽ chứa vừa vặn 2 items. Với 6 items, ta có tổng cộng 3 hàng, mỗi hàng 2 items.
+- Sơ đồ text:
+Hàng 1:   [ Item 1 ]     [ Item 2 ]
+Hàng 2:   [ Item 3 ]     [ Item 4 ]
+Hàng 3:   [ Item 5 ]     [ Item 6 ]
+
+Trường hợp 3: .container { display: flex; justify-content: space-between; align-items: center; } (3 items)
+- Bố cục: 3 phần tử nằm trên 1 hàng và căn giữa theo chiều dọc. Khoảng trống còn dư được chia đều vào giữa các items. Item 1 bám sát lề trái, Item 3 bám sát lề phải, Item 2 đứng độc lập chính giữa.
+- Sơ đồ text:
+[ Item 1 ] <------- khoảng trống -------> [ Item 2 ] <------- khoảng trống -------> [ Item 3 ]
+
+Trường hợp 4: .container { display: grid; grid-template-columns: 200px 1fr 200px; gap: 20px; } (3 items)
+- Bố cục: Lưới chia làm 3 cột. Cột 1 rộng 200px, cột 3 rộng 200px. Cột 2 ở giữa tự co giãn chiếm toàn bộ không gian còn lại (1fr). Giữa các cột có khoảng hở 20px. 3 items vừa đúng điền vào 1 hàng đầu tiên.
+- Sơ đồ text:
+[ Item 1 (200px) ]  <20px>  [       Item 2 (1fr)       ]  <20px>  [ Item 3 (200px) ]
+
+Trường hợp 5: .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; } (7 items)
+- Bố cục: Lưới chia đều làm 3 cột bằng nhau (1fr). Do có 7 items, trình duyệt tự động xếp thành 3 hàng. Hàng 1 có 3 items, hàng 2 có 3 items. Hàng 3 chỉ có 1 item (Item 7) nằm ở cột ngoài cùng bên trái, 2 ô còn lại bỏ trống.
+- Sơ đồ text:
+[ Item 1 ]  [ Item 2 ]  [ Item 3 ]
+[ Item 4 ]  [ Item 5 ]  [ Item 6 ]
+[ Item 7 ]  [ Trống  ]  [ Trống  ]
+
+---
