@@ -99,3 +99,39 @@ Trường hợp 5: .container { display: grid; grid-template-columns: repeat(3, 
 - Lý do: Lưới chứa các thẻ card bên ngoài thì nên dùng Grid. Nhưng bên trong mỗi thẻ card, ta dùng Flexbox (flex-direction: column) là chuẩn nhất. Lý do là Flexbox hỗ trợ đẩy phần tử bằng margin: auto. Chỉ cần set margin-top: auto cho cái nút là nó tự động bị đẩy sát xuống đáy card, bất chấp đoạn text mô tả bên trên dài hay ngắn.
 
 ---
+
+### Câu C2 (10đ) — Debug Flexbox
+
+Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống
+- Nguyên nhân: Các thẻ card hiện tại chỉ là các khối tĩnh nằm trong flex container bọc ngoài. Khi nội dung mô tả bên trong dài ngắn khác nhau, thẻ card sẽ có chiều cao khác nhau. Nút "Mua" do chỉ được xếp ngay sát dưới đoạn text nên sẽ bị trồi sụt, cái cao cái thấp rất lộn xộn.
+- Code sửa: Cần biến bản thân thẻ .card thành một flex container chạy theo trục dọc, sau đó dùng thủ thuật margin auto để đẩy nút xuống kịch sàn.
+.card {
+    width: 30%;
+    margin: 1.5%;
+    display: flex;
+    flex-direction: column;
+}
+.card .btn {
+    padding: 10px;
+    margin-top: auto;
+}
+
+Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
+- Nguyên nhân: Khối .hero mới chỉ được khai báo display: flex để kích hoạt môi trường Flexbox, nhưng lại thiếu các lệnh chỉ định vị trí. Trình duyệt đành phải quăng item vào vị trí mặc định ban đầu là góc trên cùng bên trái.
+- Code sửa: Chỉ cần bổ sung lệnh căn giữa theo trục ngang (justify-content) và trục dọc (align-items).
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+Lỗi 3: Sidebar bị co lại khi content quá dài
+- Nguyên nhân: Trong thế giới Flexbox, mọi item con sinh ra đều bị gắn sẵn một thuộc tính ngầm là flex-shrink: 1 (cho phép bị co bóp). Khi thẻ .content bên cạnh bị dồn quá nhiều chữ và phình to ra, trình duyệt sẽ tự động bóp nghẹt thẻ .sidebar lại để nhường chỗ, làm vỡ kích thước 250px ban đầu.
+- Code sửa: Ra lệnh cấm tuyệt đối không cho phép thẻ .sidebar bị co bóp bằng cách gán flex-shrink bằng 0.
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+---
