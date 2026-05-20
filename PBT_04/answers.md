@@ -73,3 +73,29 @@ Trường hợp 5: .container { display: grid; grid-template-columns: repeat(3, 
 [ Item 7 ]  [ Trống  ]  [ Trống  ]
 
 ---
+
+## PHẦN C — SUY LUẬN
+
+### Câu C1 (10đ) — Flexbox vs Grid: Khi nào dùng gì?
+
+1. Navigation bar ngang (logo + menu + buttons)
+- Lựa chọn: Dùng Flexbox.
+- Lý do: Đây là layout 1 chiều (theo chiều ngang). Flexbox sinh ra để căn chỉnh các phần tử trên 1 hàng, dễ dàng đẩy logo sang trái và menu sang phải bằng justify-content: space-between, đồng thời căn giữa dọc hoàn hảo bằng align-items: center.
+
+2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+- Lựa chọn: Dùng Grid.
+- Lý do: Bố cục lưới 2 chiều là thế mạnh tuyệt đối của Grid. Chỉ cần khai báo 3 cột repeat(3, 1fr), khi ảnh mới được thêm vào, Grid sẽ tự động xếp chúng xuống hàng tiếp theo cực kỳ ngay ngắn mà không lo bị lệch.
+
+3. Layout blog: main content + sidebar
+- Lựa chọn: Dùng Grid.
+- Lý do: Đây là layout cấu trúc trang (page layout). Dùng Grid giúp chia tỷ lệ mảng lớn rất rõ ràng (ví dụ grid-template-columns: 1fr 300px). Code sẽ cực kỳ gọn và mang tính định hình cao hơn so với Flexbox.
+
+4. Footer với 4 cột thông tin (Về chúng tôi, Liên kết, Hỗ trợ, Liên hệ)
+- Lựa chọn: Dùng Flexbox.
+- Lý do: Dùng Flexbox với thuộc tính flex: 1 cho cả 4 cột sẽ giúp chúng tự động chia đều khoảng không gian và co giãn linh hoạt. Khi thu nhỏ màn hình điện thoại, chỉ cần một dòng flex-direction: column là 4 cột tự động xếp thành hàng dọc.
+
+5. Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
+- Lựa chọn: Kết hợp cả hai (hoặc chỉ dùng Flexbox hướng dọc).
+- Lý do: Lưới chứa các thẻ card bên ngoài thì nên dùng Grid. Nhưng bên trong mỗi thẻ card, ta dùng Flexbox (flex-direction: column) là chuẩn nhất. Lý do là Flexbox hỗ trợ đẩy phần tử bằng margin: auto. Chỉ cần set margin-top: auto cho cái nút là nó tự động bị đẩy sát xuống đáy card, bất chấp đoạn text mô tả bên trên dài hay ngắn.
+
+---
