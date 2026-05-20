@@ -84,3 +84,24 @@ Các breakpoints phổ biến theo Bootstrap và thực tế ngành:
 Ghi chú thực tế: Trong thực tế dự án, không nhất thiết phải dùng hết 6 breakpoints. Phần lớn các trang web chỉ cần 3 mốc chính là Mobile (dưới 768px), Tablet (768px đến 1023px) và Desktop (1024px trở lên) là đủ để xử lý tốt đại đa số thiết bị trên thị trường.
 
 ---
+
+### Câu A3 (5đ) — Media Queries
+
+Bảng kết quả chiều rộng .container theo từng kích thước màn hình:
+
+- 375px (iPhone SE): width = 100%
+  Lý do: 375px nhỏ hơn tất cả các breakpoint (576, 768, 992, 1200). Không có media query nào được kích hoạt. CSS mặc định là width: 100% được áp dụng.
+
+- 600px: width = 540px
+  Lý do: 600px lớn hơn 576px nên media query min-width: 576px được kích hoạt. Nhưng 600px vẫn nhỏ hơn 768px nên media query tiếp theo chưa có hiệu lực. Kết quả cuối cùng là 540px.
+
+- 800px: width = 720px
+  Lý do: 800px lớn hơn cả 576px lẫn 768px. Hai media query đầu đều được kích hoạt, nhưng theo quy tắc Cascade trong CSS, media query khai báo sau sẽ đè lên trước. Media query min-width: 768px khai báo sau cho width: 720px. Kết quả là 720px.
+
+- 1000px: width = 960px
+  Lý do: 1000px lớn hơn 576px, 768px và 992px. Ba media query đầu đều được kích hoạt. Media query cuối trong số đó là min-width: 992px (width: 960px) sẽ thắng. Kết quả là 960px.
+
+- 1400px: width = 1140px
+  Lý do: 1400px lớn hơn tất cả 4 breakpoints. Tất cả media query đều được kích hoạt. Media query cuối cùng là min-width: 1200px (width: 1140px) ghi đè tất cả. Kết quả là 1140px.
+
+---
