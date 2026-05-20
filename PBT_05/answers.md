@@ -105,3 +105,82 @@ Bảng kết quả chiều rộng .container theo từng kích thước màn hì
   Lý do: 1400px lớn hơn tất cả 4 breakpoints. Tất cả media query đều được kích hoạt. Media query cuối cùng là min-width: 1200px (width: 1140px) ghi đè tất cả. Kết quả là 1140px.
 
 ---
+
+### Câu A4 (5đ) — SCSS Basics
+
+4 tính năng chính của SCSS:
+
+1. Variables (Biến)
+Dùng để lưu trữ các giá trị hay dùng đi dùng lại như màu sắc, font chữ, kích thước vào một chỗ. Khi cần thay đổi màu chủ đạo của toàn trang, chỉ cần sửa 1 chỗ duy nhất thay vì phải tìm và sửa hàng chục chỗ trong file CSS.
+
+Ví dụ:
+$primary-color: #1a73e8;
+$font-size-base: 16px;
+
+.button {
+    background-color: $primary-color;
+    font-size: $font-size-base;
+}
+
+2. Nesting (Lồng nhau)
+Cho phép viết CSS theo cấu trúc cây, lồng selector con bên trong selector cha, phản ánh đúng cấu trúc HTML. Giúp code dễ đọc hơn và tránh phải lặp lại tên class cha nhiều lần.
+
+Ví dụ:
+.navbar {
+    background: #333;
+
+    .logo {
+        font-size: 24px;
+        color: white;
+    }
+
+    a {
+        color: #ccc;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+3. Mixins
+Là các đoạn code CSS được đóng gói lại thành tên gọi riêng, có thể truyền tham số vào. Dùng @mixin để khai báo và @include để gọi ra dùng. Cực kỳ hữu ích cho các pattern lặp lại như flex-center, box-shadow hay các đoạn media query.
+
+Ví dụ:
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    height: 100vh;
+    @include flex-center;
+}
+
+4. @extend (Kế thừa)
+Cho phép một selector sao chép toàn bộ CSS từ một selector khác đã được khai báo trước đó, rồi có thể bổ sung thêm thuộc tính riêng. Khác với mixin ở chỗ @extend không cho phép truyền tham số nhưng code sinh ra gọn hơn vì SCSS sẽ gộp chung các selector lại.
+
+Ví dụ:
+.btn-base {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    @extend .btn-base;
+    background-color: $primary-color;
+    color: white;
+}
+
+Tại sao trình duyệt không đọc được file .scss?
+Vì trình duyệt chỉ hiểu ngôn ngữ CSS thuần túy theo tiêu chuẩn W3C. SCSS là ngôn ngữ mở rộng (superset) của CSS được tạo ra để lập trình viên viết code dễ hơn, nhưng bản thân nó không phải CSS hợp lệ và trình duyệt không có bộ xử lý SCSS nào cả.
+
+Các bước chuyển SCSS sang CSS:
+Bước 1: Cài đặt Sass compiler (thông qua Node.js bằng lệnh npm install -g sass).
+Bước 2: Chạy lệnh biên dịch: sass style.scss style.css
+Bước 3: Hoặc dùng chế độ watch để tự động biên dịch mỗi khi lưu file: sass --watch style.scss:style.css
+Bước 4: Nhúng file style.css đã được biên dịch vào HTML như bình thường.
+
+---
