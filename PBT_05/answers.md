@@ -184,3 +184,37 @@ Bước 3: Hoặc dùng chế độ watch để tự động biên dịch mỗi 
 Bước 4: Nhúng file style.css đã được biên dịch vào HTML như bình thường.
 
 ---
+
+## PHẦN C — PHÂN TÍCH
+
+### Câu C1 (10đ) — Phân tích trang web thực
+
+Trang web được chọn để phân tích: Shopee (shopee.vn)
+
+Phân tích ở 3 kích thước màn hình (mở bằng DevTools Toggle Device):
+
+1. Mobile - 375px (iPhone SE)
+- Navigation: Thanh menu ngang biến mất hoàn toàn. Thay vào đó là biểu tượng hamburger ở góc trái và biểu tượng tìm kiếm, giỏ hàng ở góc phải. Khi bấm vào hamburger mới mở ra menu dạng slide từ trái sang.
+- Lưới sản phẩm: Hiển thị 2 cột. Shopee vẫn giữ 2 cột ở mobile vì sản phẩm nhỏ và người dùng quen duyệt kiểu này trên điện thoại rồi.
+- Các phần bị ẩn: Sidebar danh mục bên trái ẩn hoàn toàn, banner quảng cáo thu nhỏ lại còn 1 banner duy nhất, khu vực flash sale vẫn hiển thị nhưng cuộn ngang thay vì dàn hàng ngang.
+- Font size: Tên sản phẩm khoảng 12-13px, giá khoảng 14px, nhỏ hơn đáng kể so với desktop.
+
+2. Tablet - 768px
+- Navigation: Vẫn còn thanh tìm kiếm chiếm toàn chiều ngang header. Logo và các icon giỏ hàng, thông báo hiện ra. Menu danh mục hiện dạng ngang nhưng bị rút gọn còn khoảng 5-6 mục chính.
+- Lưới sản phẩm: Tăng lên 3 cột. Ảnh sản phẩm to hơn, thông tin rõ hơn.
+- Các phần bị ẩn: Sidebar vẫn chưa xuất hiện. Banner quảng cáo hiện 2 cột.
+- Font size: Tên sản phẩm tăng lên khoảng 14px.
+
+3. Desktop - 1440px
+- Navigation: Hiển thị đầy đủ với logo, thanh tìm kiếm rộng, và toàn bộ các icon (giỏ hàng, thông báo, tài khoản). Bên dưới là thanh danh mục ngang hiện tất cả các category.
+- Lưới sản phẩm: Hiển thị 5 đến 6 cột sản phẩm trên một hàng.
+- Các phần hiện thêm: Sidebar bộ lọc xuất hiện ở trang danh mục, banner hero to rõ nét, khu vực flash sale hiện đầy đủ sản phẩm không cần cuộn ngang.
+- Font size: Tên sản phẩm khoảng 14-15px, thoải mái hơn để đọc.
+
+Media queries tìm thấy trong DevTools (Styles panel):
+- @media (max-width: 1200px): Shopee dùng để thu hẹp container và điều chỉnh padding cho màn hình nhỏ hơn.
+- @media (max-width: 768px): Đây là breakpoint chính, ẩn sidebar, chuyển navigation sang hamburger, điều chỉnh lưới sản phẩm.
+
+(Ảnh chụp màn hình ở 3 kích thước và ảnh DevTools media query được lưu trong thư mục screenshots)
+
+---
