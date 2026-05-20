@@ -52,3 +52,35 @@ Tại sao Mobile-First được khuyên dùng?
 - Về mặt tư duy thiết kế, Mobile-First buộc lập trình viên phải ưu tiên nội dung quan trọng nhất lên trước, loại bỏ phần thừa, tạo ra trải nghiệm gọn gàng hơn.
 
 ---
+
+### Câu A2 (5đ) — Breakpoints chuẩn
+
+Các breakpoints phổ biến theo Bootstrap và thực tế ngành:
+
+1. Extra Small - xs (dưới 576px)
+- Thiết bị đại diện: Điện thoại nhỏ (iPhone SE, Galaxy A series)
+- Lưới sản phẩm nên hiển thị: 1 cột (toàn màn hình)
+
+2. Small - sm (576px trở lên)
+- Thiết bị đại diện: Điện thoại màn hình lớn (iPhone Plus, Samsung S series)
+- Lưới sản phẩm nên hiển thị: 1 hoặc 2 cột
+
+3. Medium - md (768px trở lên)
+- Thiết bị đại diện: Tablet dọc (iPad, Samsung Tab)
+- Lưới sản phẩm nên hiển thị: 2 cột
+
+4. Large - lg (992px trở lên)
+- Thiết bị đại diện: Tablet ngang, laptop nhỏ
+- Lưới sản phẩm nên hiển thị: 3 cột
+
+5. Extra Large - xl (1200px trở lên)
+- Thiết bị đại diện: Desktop, laptop màn hình lớn
+- Lưới sản phẩm nên hiển thị: 4 cột
+
+6. XXL (1400px trở lên)
+- Thiết bị đại diện: Màn hình 2K, 4K, widescreen
+- Lưới sản phẩm nên hiển thị: 4 đến 6 cột tùy nội dung
+
+Ghi chú thực tế: Trong thực tế dự án, không nhất thiết phải dùng hết 6 breakpoints. Phần lớn các trang web chỉ cần 3 mốc chính là Mobile (dưới 768px), Tablet (768px đến 1023px) và Desktop (1024px trở lên) là đủ để xử lý tốt đại đa số thiết bị trên thị trường.
+
+---
