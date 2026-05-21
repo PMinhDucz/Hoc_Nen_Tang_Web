@@ -189,31 +189,31 @@ Bước 4: Nhúng file style.css đã được biên dịch vào HTML như bình
 
 ### Câu C1 (10đ) — Phân tích trang web thực
 
-Trang web được chọn để phân tích: Shopee (shopee.vn)
+Trang web được chọn để phân tích: Tiki (tiki.vn)
 
 Phân tích ở 3 kích thước màn hình (mở bằng DevTools Toggle Device):
 
 1. Mobile - 375px (iPhone SE)
-- Navigation: Thanh menu ngang biến mất hoàn toàn. Thay vào đó là biểu tượng hamburger ở góc trái và biểu tượng tìm kiếm, giỏ hàng ở góc phải. Khi bấm vào hamburger mới mở ra menu dạng slide từ trái sang.
-- Lưới sản phẩm: Hiển thị 2 cột. Shopee vẫn giữ 2 cột ở mobile vì sản phẩm nhỏ và người dùng quen duyệt kiểu này trên điện thoại rồi.
-- Các phần bị ẩn: Sidebar danh mục bên trái ẩn hoàn toàn, banner quảng cáo thu nhỏ lại còn 1 banner duy nhất, khu vực flash sale vẫn hiển thị nhưng cuộn ngang thay vì dàn hàng ngang.
-- Font size: Tên sản phẩm khoảng 12-13px, giá khoảng 14px, nhỏ hơn đáng kể so với desktop.
+- Navigation: Thanh nav ngang bị ẩn hoàn toàn. Header chỉ còn logo Tiki ở giữa, biểu tượng tìm kiếm và giỏ hàng ở góc phải. Menu danh mục chuyển thành thanh cuộn ngang ở phía dưới header thay vì dropdown.
+- Lưới sản phẩm: Hiển thị 2 cột. Tiki giữ nguyên 2 cột ở mobile để người dùng so sánh sản phẩm dễ hơn khi lướt.
+- Các phần bị ẩn: Sidebar bộ lọc ẩn hoàn toàn, banner flash sale thu nhỏ còn 1 dải ngang, khu vực TikiNOW chỉ hiện icon nhỏ.
+- Font size: Tên sản phẩm khoảng 12-13px, giá hiển thị to hơn khoảng 14-15px để nổi bật.
 
 2. Tablet - 768px
-- Navigation: Vẫn còn thanh tìm kiếm chiếm toàn chiều ngang header. Logo và các icon giỏ hàng, thông báo hiện ra. Menu danh mục hiện dạng ngang nhưng bị rút gọn còn khoảng 5-6 mục chính.
-- Lưới sản phẩm: Tăng lên 3 cột. Ảnh sản phẩm to hơn, thông tin rõ hơn.
-- Các phần bị ẩn: Sidebar vẫn chưa xuất hiện. Banner quảng cáo hiện 2 cột.
-- Font size: Tên sản phẩm tăng lên khoảng 14px.
+- Navigation: Header hiện đầy đủ hơn với logo, thanh tìm kiếm chiếm phần giữa và các icon tài khoản, giỏ hàng. Menu danh mục hiện dạng tab ngang được rút gọn còn khoảng 6 mục.
+- Lưới sản phẩm: Tăng lên 3 cột. Ảnh sản phẩm to hơn, hiển thị thêm thông tin đánh giá sao.
+- Các phần bị ẩn: Sidebar bộ lọc vẫn chưa xuất hiện ở kích thước này.
+- Font size: Tên sản phẩm tăng lên khoảng 13-14px, các badge giảm giá hiện rõ hơn.
 
 3. Desktop - 1440px
-- Navigation: Hiển thị đầy đủ với logo, thanh tìm kiếm rộng, và toàn bộ các icon (giỏ hàng, thông báo, tài khoản). Bên dưới là thanh danh mục ngang hiện tất cả các category.
-- Lưới sản phẩm: Hiển thị 5 đến 6 cột sản phẩm trên một hàng.
-- Các phần hiện thêm: Sidebar bộ lọc xuất hiện ở trang danh mục, banner hero to rõ nét, khu vực flash sale hiện đầy đủ sản phẩm không cần cuộn ngang.
-- Font size: Tên sản phẩm khoảng 14-15px, thoải mái hơn để đọc.
+- Navigation: Hiển thị đầy đủ cả 3 tầng: tầng 1 logo + tìm kiếm + tài khoản + giỏ hàng, tầng 2 là thanh danh mục ngang đầy đủ (Điện tử, Nhà cửa, Thể thao...), tầng 3 là banner khuyến mãi chạy ngang.
+- Lưới sản phẩm: Hiển thị 4 đến 5 cột tùy trang. Trang danh mục có thêm sidebar bộ lọc bên trái.
+- Các phần hiện thêm: Sidebar bộ lọc xuất hiện đầy đủ với filter theo giá, thương hiệu, đánh giá. Banner hero chiếm toàn chiều rộng với slider tự động.
+- Font size: Tên sản phẩm khoảng 14-15px, thoải mái để đọc.
 
 Media queries tìm thấy trong DevTools (Styles panel):
-- @media (max-width: 1200px): Shopee dùng để thu hẹp container và điều chỉnh padding cho màn hình nhỏ hơn.
-- @media (max-width: 768px): Đây là breakpoint chính, ẩn sidebar, chuyển navigation sang hamburger, điều chỉnh lưới sản phẩm.
+- @media (max-width: 1200px): Tiki dùng để thu hẹp container chính và điều chỉnh số cột hiển thị sản phẩm.
+- @media (max-width: 768px): Breakpoint chính để ẩn sidebar, thu gọn navigation về dạng mobile, điều chỉnh lưới sản phẩm về 2 cột.
 
 (Ảnh chụp màn hình ở 3 kích thước và ảnh DevTools media query được lưu trong thư mục screenshots)
 
