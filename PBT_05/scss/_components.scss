@@ -1,0 +1,79 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.card {
+    @include card-shadow;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+
+    .card-image {
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .card-body {
+        padding: $spacing-md;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        h3 {
+            font-size: 16px;
+            color: $text-color;
+            margin-bottom: $spacing-sm;
+        }
+
+        .price {
+            color: $secondary-color;
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: $spacing-md;
+        }
+
+        .btn-buy {
+            margin-top: auto;
+            padding: 10px $spacing-md;
+            background-color: $primary-color;
+            color: white;
+            border: none;
+            border-radius: $border-radius;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+        .card-image img {
+            transform: scale(1.1);
+        }
+    }
+
+    &.featured {
+        border: 2px solid $primary-color;
+    }
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @include respond-to(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
