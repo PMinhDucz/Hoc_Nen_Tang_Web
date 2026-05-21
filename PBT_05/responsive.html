@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1 - Responsive Product Page</title>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">ShopTLU</div>
+            <button class="hamburger" id="hamburger">☰</button>
+            <nav class="nav" id="nav">
+                <a href="#">Trang chủ</a>
+                <a href="#">Sản phẩm</a>
+                <a href="#">Khuyến mãi</a>
+                <a href="#">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Bộ lọc</h3>
+            <div class="filter-group">
+                <p>Danh mục</p>
+                <label><input type="checkbox"> Điện thoại</label>
+                <label><input type="checkbox"> Laptop</label>
+                <label><input type="checkbox"> Phụ kiện</label>
+                <label><input type="checkbox"> Tablet</label>
+            </div>
+            <div class="filter-group">
+                <p>Khoảng giá</p>
+                <label><input type="checkbox"> Dưới 5 triệu</label>
+                <label><input type="checkbox"> 5 - 15 triệu</label>
+                <label><input type="checkbox"> Trên 15 triệu</label>
+            </div>
+        </aside>
+
+        <main class="main">
+            <h2 class="section-title">Sản phẩm mới nhất</h2>
+            <div class="product-grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 1">
+                    <div class="card-body">
+                        <h3>MacBook Air M2</h3>
+                        <p class="price">28.990.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 2">
+                    <div class="card-body">
+                        <h3>iPhone 15 Pro Max</h3>
+                        <p class="price">33.990.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 3">
+                    <div class="card-body">
+                        <h3>iPad Air 5</h3>
+                        <p class="price">15.990.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 4">
+                    <div class="card-body">
+                        <h3>AirPods Pro 2</h3>
+                        <p class="price">6.290.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 5">
+                    <div class="card-body">
+                        <h3>Apple Watch S9</h3>
+                        <p class="price">10.990.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 6">
+                    <div class="card-body">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">22.990.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 7">
+                    <div class="card-body">
+                        <h3>Tai nghe Sony WH-1000</h3>
+                        <p class="price">7.490.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" alt="Sản phẩm 8">
+                    <div class="card-body">
+                        <h3>Chuột Logitech MX Master</h3>
+                        <p class="price">2.190.000đ</p>
+                        <button>Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="ads-bar">
+            <p>Quảng cáo</p>
+            <img src="https://via.placeholder.com/160x400" alt="Quảng cáo">
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 ShopTLU. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav').classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
