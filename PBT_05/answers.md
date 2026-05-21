@@ -218,3 +218,137 @@ Media queries tìm thấy trong DevTools (Styles panel):
 (Ảnh chụp màn hình ở 3 kích thước và ảnh DevTools media query được lưu trong thư mục screenshots)
 
 ---
+
+### Câu C2 (10đ) — Thiết kế Responsive Strategy cho trang đặt bàn nhà hàng
+
+Trang đặt bàn nhà hàng cần xử lý tốt 3 kích thước màn hình. Dưới đây là wireframe bố cục và phân tích từng breakpoint.
+
+Wireframe Mobile (dưới 768px):
++---------------------------+
+|  LOGO         SĐT liên hệ |
++---------------------------+
+|    HERO IMAGE (full width) |
+|  (ảnh thu nhỏ, vẫn giữ)  |
++---------------------------+
+|  LƯỚI ẢNH MÓN ĂN (1 cột) |
+|  [Ảnh 1]                  |
+|  [Ảnh 2]                  |
+|  [Ảnh 3]                  |
+|  [Ảnh 4]                  |
+|  [Ảnh 5]                  |
+|  [Ảnh 6]                  |
++---------------------------+
+|  FORM ĐẶT BÀN (full width)|
+|  Ngày / Giờ               |
+|  Số người                 |
+|  Ghi chú                  |
+|  [Nút đặt bàn]            |
++---------------------------+
+|  BẢN ĐỒ (ẩn để nhẹ trang) |
+|  Thay bằng địa chỉ text   |
++---------------------------+
+|  FOOTER                   |
++---------------------------+
+
+Những gì bị ẩn trên Mobile: Bản đồ Google Maps bị ẩn để tránh tốn dữ liệu và tăng tốc tải trang. Thay vào đó hiển thị địa chỉ và số điện thoại dạng text. Ảnh hero vẫn giữ nhưng chiều cao giảm xuống khoảng 200px.
+
+Wireframe Tablet (768px đến 1023px):
++------------------------------------------+
+|   LOGO              SĐT liên hệ          |
++------------------------------------------+
+|       HERO IMAGE (full width, cao hơn)   |
++------------------------------------------+
+|  LƯỚI ẢNH MÓN ĂN (2 cột)               |
+|  [Ảnh 1]   [Ảnh 2]                      |
+|  [Ảnh 3]   [Ảnh 4]                      |
+|  [Ảnh 5]   [Ảnh 6]                      |
++------------------------------------------+
+|  FORM ĐẶT BÀN  |  BẢN ĐỒ GOOGLE MAPS   |
+|  (1/2 chiều rộng)  (1/2 chiều rộng)     |
++------------------------------------------+
+|  FOOTER                                  |
++------------------------------------------+
+
+Grid ảnh món ăn ở Tablet: 2 cột. Bản đồ Google Maps xuất hiện trở lại và đặt cạnh form đặt bàn (mỗi cái chiếm 50% chiều rộng).
+
+Wireframe Desktop (1024px trở lên):
++--------------------------------------------------+
+|  LOGO          Menu điều hướng          SĐT      |
++--------------------------------------------------+
+|           HERO IMAGE (full width, cao đủ)        |
++--------------------------------------------------+
+|    LƯỚI ẢNH MÓN ĂN (3 cột)                     |
+|  [Ảnh 1]   [Ảnh 2]   [Ảnh 3]                   |
+|  [Ảnh 4]   [Ảnh 5]   [Ảnh 6]                   |
++--------------------------------------------------+
+|   FORM ĐẶT BÀN (1/3)  |  BẢN ĐỒ MAPS (2/3)    |
++--------------------------------------------------+
+|  FOOTER (3 cột thông tin)                        |
++--------------------------------------------------+
+
+Layout Desktop: Grid 3 cột cho ảnh món ăn. Form đặt bàn chiếm 1 phần 3, bản đồ chiếm 2 phần 3 để nhìn rõ vị trí nhà hàng hơn.
+
+CSS Skeleton Mobile-First:
+
+.restaurant-page {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "hero"
+        "gallery"
+        "form"
+        "address"
+        "footer";
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.google-map {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .restaurant-page {
+        grid-template-areas:
+            "header"
+            "hero"
+            "gallery"
+            "form-map"
+            "footer";
+    }
+
+    .form-map-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .google-map {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .restaurant-page {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-map-section {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+---
