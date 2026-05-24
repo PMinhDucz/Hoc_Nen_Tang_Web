@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Components Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="max-w-5xl mx-auto space-y-12">
+        <h1 class="text-3xl font-bold text-gray-800 border-b pb-4">TailwindCSS Component Library</h1>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+            <h2 class="text-xl font-semibold mb-6 text-gray-700">1. Buttons</h2>
+            <div class="flex flex-wrap items-end gap-4">
+                
+                <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors font-medium">
+                    Primary Button
+                </button>
+                
+                <button class="bg-gray-600 text-white px-5 py-2.5 rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 transition-colors font-medium">
+                    Secondary
+                </button>
+                
+                <button class="border-2 border-blue-600 text-blue-600 px-5 py-2.5 rounded-lg hover:bg-blue-50 focus:ring-4 focus:ring-blue-100 transition-colors font-medium">
+                    Outline Button
+                </button>
+                
+                <button class="bg-blue-400 text-white px-5 py-2.5 rounded-lg cursor-not-allowed opacity-60 font-medium" disabled>
+                    Disabled
+                </button>
+                
+                <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg flex items-center font-medium cursor-wait">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                </button>
+            </div>
+            
+            <div class="flex items-center gap-4 mt-6 pt-6 border-t">
+                <button class="bg-indigo-600 text-white px-3 py-1.5 text-sm rounded hover:bg-indigo-700">Small</button>
+                <button class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg hover:bg-indigo-700">Medium</button>
+                <button class="bg-indigo-600 text-white px-6 py-3.5 text-lg rounded-xl hover:bg-indigo-700">Large Size</button>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+</html>
