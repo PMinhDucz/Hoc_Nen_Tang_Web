@@ -72,13 +72,12 @@ Dự đoán in hay không in:
 Viết lại 3 cách nối chuỗi bằng backtick:
 
 ```javascript
-// Cách 1:
 var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
 
-// Cách 2:
+
 var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
 
-// Cách 3:
+
 var html = `
 <div class="card">
     <h2>${title}</h2>
@@ -87,3 +86,40 @@ var html = `
 </div>
 `;
 ```
+
+---
+
+## PHẦN C — SUY LUẬN
+
+### Câu C1 (10đ) — Debug JavaScript
+
+Đoạn code trong đề có 5 lỗi cơ bản và 1 lỗi ẩn (logic scope):
+
+1. **Lỗi so sánh gán (`giaSauGiam = 0`):**
+   - Lỗi ở: `if (giaSauGiam = 0)`
+   - Giải thích: Dấu `=` là phép gán, không phải phép so sánh. Biểu thức này tự động gán giá trị 0 cho `giaSauGiam`. Hơn nữa vì `0` là falsy, nên điều kiện `if` bị bỏ qua không chạy.
+   - Cách sửa: Đổi thành `if (giaSauGiam === 0)`
+
+2. **Lỗi logic tham số đầu vào là chuỗi:**
+   - Lỗi ở: `tinhGiaGiamGia("100000", 20)`
+   - Giải thích: Hàm mong đợi số học, nhưng lại truyền chuỗi `"100000"`. Tuy trong hàm sử dụng `*` và `-` nên JS tự động ép kiểu và tính đúng, nhưng đây là bad practice, nếu có phép `+` sẽ sinh ra thảm họa.
+   - Cách sửa: Gọi hàm với kiểu số `tinhGiaGiamGia(100000, 20)`
+
+3. **Lỗi không xử lý early return cho giá trị lỗi:**
+   - Lỗi ở: Test case `110%`
+   - Giải thích: Khi nhập 110%, hàm return dòng chữ `"Phần trăm giảm không hợp lệ"`. Nhưng lệnh `console.log("Giá: " + gia2)` bên ngoài lại thản nhiên nối thêm chữ "Giá:" vào, in ra một câu rất vô lý.
+   - Cách sửa: Cần dùng `if-else` ở dưới để kiểm tra nếu `typeof gia2 === "string"` thì in ra lỗi, ngược lại mới in "Giá: ...".
+
+4. **Lỗi khai báo biến (thiếu an toàn):**
+   - Lỗi ở: `var giamGia = ...`
+   - Giải thích: Sử dụng `var` có thể làm rò rỉ biến ra toàn cục (nếu không bọc trong hàm) và dễ gây lỗi trùng lặp tên biến.
+   - Cách sửa: Đổi thành `const giamGia = ...` vì biến này chỉ tính 1 lần không đổi lại.
+
+5. **Lỗi thiếu dấu chấm phẩy (;) kết thúc câu lệnh:**
+   - Dù JS tự chèn (ASI) nhưng rất dễ gây lỗi ngầm nguy hiểm nếu có 2 dòng code liền nhau kiểu `[1,2,3].forEach(...)`.
+   - Cách sửa: Bổ sung `;` vào cuối tất cả các lệnh gán và `return`.
+
+6. **Lỗi "ẨN" - Vòng lặp `for` kết hợp `var` và `setTimeout`:**
+   - Lỗi ở: `for (var i = 0; i < 5; i++) { setTimeout(...) }`
+   - Giải thích: Hàm `setTimeout` chạy bất đồng bộ (chạy sau cùng). Vì `var` không có block scope (chỉ có function scope/global scope), nên khi vòng lặp chạy xong cả 5 lần, biến `i` mang giá trị cuối cùng là 5. Lúc này 5 hàm `setTimeout` mới bắt đầu chạy và in ra `Item 5` liên tục 5 lần.
+   - Cách sửa: Đổi `var i = 0` thành `let i = 0`. Khóa `let` hỗ trợ block scope, giúp mỗi vòng lặp lưu lại một bản sao độc lập của `i` tại thời điểm đó. Kết quả sẽ in ra đúng từ `Item 0` đến `Item 4`.
