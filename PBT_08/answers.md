@@ -100,3 +100,49 @@ Kết quả in ra:
 16 
 
 *Giải thích:* Tại sao lại là 16 chứ không phải 8? Vì cú pháp spread chỉ là **Shallow Copy (Copy nông)**. Nó chỉ tạo ra object mới ở tầng ngoài cùng, còn những object con nằm sâu bên trong (như specs) thì nó chỉ copy địa chỉ bộ nhớ (reference) thôi. Thành ra copy.specs và product.specs vẫn đang trỏ chung vào cùng một chỗ. Sửa một bên là bên kia nhảy theo ngay!
+
+---
+
+## PHẦN C — SUY LUẬN
+
+### Câu C1 (10đ) — Refactor Code
+
+Đoạn code lồng nhau 3 vòng lặp siêu "cồng kềnh" của đề bài đã được refactor lại siêu gọn bằng ES6 Array Methods (chỉ mất đúng 4 dòng):
+
+```javascript
+const processOrders = orders => orders
+    .filter(o => o.status === "completed" && o.total > 100000)
+    .map(({ id, customer, total }) => ({ id, customer, total, discount: total * 0.1, finalTotal: total * 0.9 }))
+    .sort((a, b) => b.finalTotal - a.finalTotal);
+```
+
+### Câu C2 (10đ) — Thiết kế API
+
+Viết lại thư viện `miniArray` tái tạo lại cách hoạt động cốt lõi của `map`, `filter`, `reduce` (dùng vòng lặp `for` nguyên thủy):
+
+```javascript
+const miniArray = {
+    map(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+        }
+        return result;
+    },
+    filter(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) result.push(arr[i]);
+        }
+        return result;
+    },
+    reduce(arr, fn, initialValue) {
+        let acc = initialValue !== undefined ? initialValue : arr[0];
+        let startIndex = initialValue !== undefined ? 0 : 1;
+        for (let i = startIndex; i < arr.length; i++) {
+            acc = fn(acc, arr[i], i, arr);
+        }
+        return acc;
+    }
+};
+```
