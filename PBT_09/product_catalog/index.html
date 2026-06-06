@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">TechStore</div>
+        <div class="header-actions">
+            <button id="themeToggle" class="icon-btn">🌙</button>
+            <div class="cart-wrapper">
+                <span class="cart-icon">🛒</span>
+                <span id="cartBadge" class="badge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <select id="sortSelect">
+                <option value="default">Default Sort</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="rating-desc">Highest Rated</option>
+            </select>
+        </div>
+
+        <div class="category-filters" id="categoryFilters">
+            <button class="cat-btn active" data-category="all">All</button>
+            <button class="cat-btn" data-category="phone">Phones</button>
+            <button class="cat-btn" data-category="laptop">Laptops</button>
+            <button class="cat-btn" data-category="tablet">Tablets</button>
+            <button class="cat-btn" data-category="accessory">Accessories</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
