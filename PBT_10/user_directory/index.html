@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>User Management</h1>
+                <p>Manage your organization's members</p>
+            </div>
+            <button id="addUserBtn" class="primary-btn">+ Add New User</button>
+        </header>
+
+        <div class="actions-bar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search users by name or email...">
+            </div>
+        </div>
+
+        <div class="users-grid" id="usersGrid"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
