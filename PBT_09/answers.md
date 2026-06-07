@@ -55,7 +55,7 @@ Kết quả in ra lần lượt:
 BUTTON
 INNER
 OUTER
-
+    
 **Dự đoán khi uncomment stopPropagation():**
 Kết quả in ra duy nhất:
 BUTTON
@@ -102,3 +102,8 @@ document.body.appendChild(fragment);
 
 *Giải thích:*
 `DocumentFragment` là một cấu trúc cây DOM vô hình (không nằm trong màn hình thật). Việc nhét 1000 thẻ vào Fragment chỉ diễn ra trong bộ nhớ nháp, giao diện hoàn toàn không bị thay đổi nên trình duyệt không tốn công tính toán vẽ lại (Reflow). Chỉ đến dòng lệnh cuối cùng bốc nguyên cái Fragment đắp vào body thì màn hình mới Reflow duy nhất 1 lần. Hiệu năng được cải thiện hàng nghìn lần!
+
+---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl](https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl)

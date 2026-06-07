@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Todo App</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #todoInput { padding: 8px; width: 250px; }
+        button { padding: 8px 12px; cursor: pointer; }
+        
+        ul { list-style: none; padding: 0; margin-top: 20px; }
+        li { 
+            padding: 10px; border-bottom: 1px solid #ccc;
+            display: flex; justify-content: space-between;
+            align-items: center; width: 320px;
+            cursor: pointer;
+        }
+        
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mini Todo App</h2>
+    
+    <form id="todoForm">
+        <input type="text" id="todoInput" placeholder="Nhập việc cần làm..." required>
+        <button type="submit">Add</button>
+    </form>
+    
+    <ul id="todoList"></ul>
+
+    <script>
+        const form = document.querySelector("#todoForm");
+        const input = document.querySelector("#todoInput");
+        const list = document.querySelector("#todoList");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); 
+            
+            const li = document.createElement("li");
+            li.textContent = input.value;
+            
+            li.addEventListener("click", () => {
+                li.classList.toggle("completed");
+            });
+            
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "❌";
+            deleteBtn.addEventListener("click", (event) => {
+                event.stopPropagation(); 
+                li.remove();
+            });
+            li.appendChild(deleteBtn);
+            
+            list.appendChild(li);
+            
+            input.value = "";
+            input.focus();
+        });
+    </script>
+</body>
+</html>
