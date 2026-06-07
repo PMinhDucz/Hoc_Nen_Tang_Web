@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { padding: 20px; font-family: sans-serif; }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        .card {
+            background: #e3f2fd;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-grid">
+        <div class="card">Sản phẩm 1</div>
+        <div class="card">Sản phẩm 2</div>
+        <div class="card">Sản phẩm 3</div>
+        <div class="card">Sản phẩm 4</div>
+    </div>
+
+</body>
+</html>
