@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;color: white; padding:15px;
+
+        }
+        .grid{
+            display:flex;
+            gap: 20px;
+            margin-top:30px;
+            flex-wrap: wrap;
+        }
+        .card{
+            flex: 0 0 calc(25% - 20px);
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-height:250px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        .card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-buy{
+            margin-top: auto;
+            background: blue;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">My Logo</div>
+        <div class="navlink">
+            <span>Home</span>
+            <span>product</span>
+            <span>about</span>
+        </div>
+        <button class="login">login</button>
+    </nav>
+    <div class="grid">
+        <div class="card">
+            <h3>san pham 1</h3>
+            <p>mo ta san pham 1</p>
+            <div class="btn-buy">mua ngay</div>
+        </div>
+        <div class="card">
+            <h3>san pham 1</h3>
+            <p>mo ta san pham 1</p>
+            <div class="btn-buy">mua ngay</div>
+        </div>
+        <div class="card">
+            <h3>san pham 1</h3>
+            <p>mo ta san pham 1</p>
+            <div class="btn-buy">mua ngay</div>
+        </div>
+        <div class="card">
+            <h3>san pham 1</h3>
+            <p>mo ta san pham 1</p>
+            <div class="btn-buy">mua ngay</div>
+        </div>
+    </div>
+</body>
+</html>

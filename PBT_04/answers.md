@@ -135,3 +135,6 @@ Lỗi 3: Sidebar bị co lại khi content quá dài
 }
 
 ---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl](https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl)
