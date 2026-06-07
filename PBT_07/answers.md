@@ -123,3 +123,8 @@ var html = `
    - Lỗi ở: `for (var i = 0; i < 5; i++) { setTimeout(...) }`
    - Giải thích: Hàm `setTimeout` chạy bất đồng bộ (chạy sau cùng). Vì `var` không có block scope (chỉ có function scope/global scope), nên khi vòng lặp chạy xong cả 5 lần, biến `i` mang giá trị cuối cùng là 5. Lúc này 5 hàm `setTimeout` mới bắt đầu chạy và in ra `Item 5` liên tục 5 lần.
    - Cách sửa: Đổi `var i = 0` thành `let i = 0`. Khóa `let` hỗ trợ block scope, giúp mỗi vòng lặp lưu lại một bản sao độc lập của `i` tại thời điểm đó. Kết quả sẽ in ra đúng từ `Item 0` đến `Item 4`.
+
+---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl](https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl)
