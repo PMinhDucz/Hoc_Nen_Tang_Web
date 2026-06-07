@@ -163,3 +163,8 @@ Giải thích: Vì Rule số 10 hội tụ đủ 1 ID + 2 Class + 1 Element sinh
 3. Thay đổi thứ tự rules trong file CSS, kết quả có đổi không? Giải thích.
 Kết quả: Màu sắc KHÔNG HỀ THAY ĐỔI (Vẫn là màu đỏ).
 Giải thích: Cơ chế Specificity ưu tiên xét ĐIỂM SỐ trước. Dù bạn có mang Rule 10 cắt và dán lên tận dòng đầu tiên của file CSS, thì nó vẫn vô đối vì điểm nó cao nhất. Thứ tự code (trên hay dưới) chỉ được trình duyệt dùng đến để quyết định thắng thua khi 2 rule có SỐ ĐIỂM BẰNG Y CHANG NHAU (luật ai viết sau thì kẻ đó thắng).
+
+---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl](https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl)
