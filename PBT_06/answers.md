@@ -118,3 +118,6 @@ Just-In-Time (JIT) compiler hoặc hệ thống Purge của Tailwind hoạt đ�
 - Thiết kế một thư viện UI cho bên thứ 3 (như tạo một plugin jQuery): Nếu bạn build plugin dùng Tailwind, người dùng plugin của bạn sẽ phải đối mặt với việc xung đột class hoặc phải cài Tailwind vào dự án của họ. Ở đây, viết CSS thuần với prefix riêng (vd: `.myplugin-btn`) là lựa chọn tốt nhất.
 
 ---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl](https://drive.google.com/drive/u/0/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl)
