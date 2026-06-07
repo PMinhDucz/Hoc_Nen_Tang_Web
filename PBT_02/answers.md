@@ -176,3 +176,8 @@ Form gốc được giao có 8 lỗi nghiêm trọng về cả chức năng (kh�
 **Tại sao HTML5 không thể tự động kiểm tra (validate) ô "Xác nhận mật khẩu" có trùng khớp với ô "Mật khẩu" hay không?**
 - **Lý do:** HTML5 Validation (như `pattern`, `minlength`, `max`, `type`) chỉ hoạt động **độc lập trên từng ô input riêng lẻ**. Nó chỉ biết kiểm tra xem dữ liệu CỦA CHÍNH Ô ĐÓ có thỏa mãn điều kiện tĩnh (như độ dài, định dạng Regex) hay không.
 - HTML5 **không có khả năng lấy giá trị của ô input này để so sánh động với giá trị của ô input khác**. Do đó, để so sánh hai mật khẩu có giống nhau không, bắt buộc chúng ta phải dùng tới **JavaScript** để viết hàm so sánh lúc người dùng bấm nút Submit.
+
+---
+
+## 🎬 PHẦN D — VIDEO THỰC HÀNH OBS
+**Link Video (Google Drive):** [https://drive.google.com/drive/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl?usp=drive_link](https://drive.google.com/drive/folders/17gi3799assi8j0UU5QCvpXjvD42kgzwl?usp=drive_link)
